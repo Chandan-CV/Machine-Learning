@@ -1,0 +1,60 @@
+package ML;
+import java.util.*;
+public class Training_data_ml
+{  
+    //the distance formula    
+    public static double distance(double data[],double hybrid[])
+    {
+    double distance = Math.sqrt(  (Math.pow((data[0] - hybrid[0]),2))  +  (Math.pow((data[1] - hybrid[1]),2)));    
+    return distance;
+    }   
+    // to find the nearest neighbour 
+        public static double Ncoordinate(double data[][],double hybrid[])
+    {
+        double Nco = distance(data[0],hybrid);    
+        for(int i=0;i<data.length;i++)
+        {
+        double comp= distance(data[i],hybrid);        
+        if(comp<Nco)
+        {
+        Nco=comp;
+        }        
+        }
+        return Nco;
+    }  
+    // to find the strings
+    public static String compare(ArrayList array)
+     {
+        String Ans="";
+         double comp= (double)array.get(0);
+        double hola[]=new double[(array.size())/2];
+        double abc[]=new double[(array.size())/2];            
+        for(int i=0, j=0; (i+2)<=array.size();i+=2,j++)
+        {
+        hola[j]=(double)array.get(i);
+        //System.out.println(hola[j]);
+        }          
+        // too find the smallest disatnce in the grph     AKA the nearest neighbour
+        for(int i=0;i<hola.length;i++)
+        {
+        //double a= hola[i];
+        for(int j=0;j<hola.length;j++)
+        {
+        if(hola[i]<hola[j])
+        {
+            double a= hola[i];
+            hola[i]=hola[j];
+            hola[j]=a;
+        }       
+         }
+          }
+        //  System.out.println(hola[0]);
+        //  System.out.println(hola[1]);
+          if(hola[0]==hola[1])
+          Ans="oh god! train me more";
+         
+          else 
+          System.out.println(array.get(array.indexOf(hola[0])+1));        
+        return Ans;
+        }
+}
