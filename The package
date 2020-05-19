@@ -55,6 +55,6 @@ public class Training_data_ml
          
           else 
           System.out.println(array.get(array.indexOf(hola[0])+1));        
-        return Ans;
+        return Ans;// this gives you the answer yaaay
         }
 }
